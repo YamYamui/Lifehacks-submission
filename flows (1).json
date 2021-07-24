@@ -1,0 +1,22 @@
+[
+    {
+        "id": "48eff28242f154df",
+        "type": "function",
+        "z": "1a6deadf723728de",
+        "name": "",
+        "func": "//msg.payload.content = \"hello from bot\";\n//return msg;\ntemp = msg.payload.content\nmsg.payload.content = null\n\nif (context.global.topicPicked == \"Chemistry/Atomic\")\n    {\n        context.global.q1 = \"Saq Question\"\n    }\n\nif (context.global.topicPicked == \"Maths/G\")\n    {\n        context.global.q2 = temp\n    }\n\nif (context.global.topicPicked == \"AChemistry/Atomic\")\n    {\n        msg.payload.content = \"These are the questions in Chemistry, Atomic Structure.  \\n  1.\"+  context.global.q1 + \"\\n Which one do you want to help answer?\" ;\n        msg.payload.type = \"message\"\n\n    }\n\nif (context.global.topicPicked == \"Chemistry/Atomic\")\n    {\n        msg.payload.content = \"Please type your question.\" ;\n        context.global.topicPicked = null\n        msg.payload.type = \"message\"\n\n    }\n\n\n\nreturn msg;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 220,
+        "wires": [
+            [
+                "f8c3f9bee3de2da4",
+                "a57f0d2b931375b7"
+            ]
+        ]
+    }
+]
